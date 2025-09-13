@@ -87,16 +87,13 @@ def update_graph(n_clicks, selected_values):
             dash.no_update,
         )
 
-    # Reset the graph entirely
     fig_map = go.Figure()
 
-    # Reset the selected values
     stored_values = []
 
     # Update the children property of selected-values-store
     stored_values_json = json.dumps(stored_values)
 
-    # Reset the checkboxes value
     checkboxes_value = []
 
     # Introduce a unique identifier (timestamp) for each callback invocation
@@ -126,7 +123,7 @@ def update_graph(n_clicks, selected_values):
     ]
 
     if len(matching_files) == 1:
-        # Use the first matching file as the selected file name
+
         selected_file_name = matching_files[0]
         file_path = f"combined_graphs_2/{selected_file_name}"
         title_text = f"File Name: {file_path}"
@@ -135,14 +132,11 @@ def update_graph(n_clicks, selected_values):
             # Load the graph data synchronously
             loaded_figure_data = load_graph_data(file_path)
 
-            # Clear existing traces by setting data to an empty list
             fig_map.data = []
 
-            # Add new traces to the existing figure
             for trace in loaded_figure_data["data"]:
                 fig_map.add_trace(trace)
 
-            # Update layout
             fig_map.update_layout(loaded_figure_data["layout"])
 
         except FileNotFoundError:
@@ -155,7 +149,6 @@ def update_graph(n_clicks, selected_values):
                 dash.no_update,
             )
 
-        # Update selected values
         stored_values = selected_values
 
         # Update the children property of selected-values-store
