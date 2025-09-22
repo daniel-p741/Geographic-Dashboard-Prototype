@@ -2,6 +2,6 @@ A prototype of Impact Allies' Geospatial Dashboard (Work-in-Progress). Only the 
 
 The Geospatial Dashboard is supported by a Dagster pipeline that performs filtering, classification, and analysis on institutional datasets. Each institution is displayed on an interactive OpenStreetMap-style map, accompanied by a t-SNE visualization that displays clustering/similarity based on institutional attributes.
 
-Note: the Render instance may be slow to start up, as its still in development. The final version will be hosted on a dedicated server. 
+Note: the Render instance may be slow to start up (~30-60 seconds), as its still in development. The final version will be hosted on a dedicated server. 
 
 Render Link: https://geographic-combinations.onrender.com
