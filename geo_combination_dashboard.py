@@ -9,8 +9,9 @@ from flask import Flask
 import dash
 from IPython.display import clear_output
 
-# Get a list of file names in the "combined_graphs/" directory
+
 graph_files = os.listdir("combined_graphs_2/")
+
 # Find the longest file name and split it by commas
 longest_file_name = max(graph_files, key=len).replace(".pkl", "").split(", ")
 
@@ -41,7 +42,7 @@ app.layout = html.Div(
             value=[],  # Set a default value or values if needed
         ),
         html.Button("Update Graph", id="update-button", n_clicks=0),
-        html.H3(id="title-text"),  # Display the selected file name as a title
+        html.H3(id="title-text"),
         dcc.Graph(
             id="output-graph",
             figure=go.Figure(),
@@ -49,7 +50,7 @@ app.layout = html.Div(
             style={"height": "60vh"},
             clear_on_unhover=False,
         ),
-        html.Div(id="clear-screen", children=[]),  # Component to clear the screen
+        html.Div(id="clear-screen", children=[]),
         html.Div(
             id="selected-values-store", style={"display": "none"}, children="[]"
         ),  # Hidden div to store selected values
